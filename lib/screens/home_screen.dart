@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../widgets/button_widgets.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,6 +9,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String displayText = "0";
+
+  List<String> calculatorButtons = [
+    "C", "%", "⌫", "÷",
+    "7", "8", "9", "×",
+    "4", "5", "6", "-",
+    "1", "2", "3", "+",
+    "00", "0", ".", "=",
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +30,10 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
             flex: 2,
             child: Container(
+              alignment: Alignment.bottomRight,
+              padding: EdgeInsets.all(20),
               child: Text(
-                "564",
+                displayText,
                 style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
@@ -35,14 +47,17 @@ class _HomeScreenState extends State<HomeScreen> {
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
-
               ),
-              itemCount: 16,
+              itemCount: calculatorButtons.length,
               itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Text("1",style: TextStyle(color: Colors.white),)
-                  ],
+
+
+                return Padding(
+                  padding: EdgeInsets.all(8),
+                  child: CustomButton(
+                    onClick: () {},
+                    text: calculatorButtons[index],
+                  ),
                 );
               },
             ),
