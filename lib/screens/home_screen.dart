@@ -10,6 +10,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String displayText = "0";
+  String _output='0';
+  double _num1=0;
+  double _num2=0;
+  String _operation='';
+  bool _shouldReset =false;
+
 
   List<String> calculatorButtons = [
     "C", "%", "⌫", "÷",
@@ -26,9 +32,10 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.black,
       appBar: AppBar(title: Text("Calculator"), backgroundColor: Colors.orange),
       body: Column(
+        //mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
-            flex: 2,
+            flex: 4,
             child: Container(
               alignment: Alignment.bottomRight,
               padding: EdgeInsets.all(20),
@@ -53,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
                 return Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(6),
                   child: CustomButton(
                     onClick: () {},
                     text: calculatorButtons[index],
