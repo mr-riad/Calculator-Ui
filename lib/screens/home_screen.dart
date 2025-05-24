@@ -10,21 +10,34 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String displayText = "0";
-  String _output='0';
-  double _num1=0;
-  double _num2=0;
-  String _operation='';
-  bool _shouldReset =false;
-
+  String _output = '0';
+  double _num1 = 0;
+  double _num2 = 0;
+  String _operation = '';
+  bool _shouldReset = false;
 
   List<String> calculatorButtons = [
-    "C", "%", "⌫", "÷",
-    "7", "8", "9", "×",
-    "4", "5", "6", "-",
-    "1", "2", "3", "+",
-    "00", "0", ".", "=",
+    "C",
+    "%",
+    "⌫",
+    "÷",
+    "7",
+    "8",
+    "9",
+    "×",
+    "4",
+    "5",
+    "6",
+    "-",
+    "1",
+    "2",
+    "3",
+    "+",
+    "00",
+    "0",
+    ".",
+    "=",
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +63,22 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Expanded(
+            flex: 1,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                TextButton(
+                  onPressed: () {},
+                  child: Icon(
+                    Icons.history_toggle_off,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
             flex: 8,
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -57,8 +86,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               itemCount: calculatorButtons.length,
               itemBuilder: (context, index) {
-
-
                 return Padding(
                   padding: EdgeInsets.all(6),
                   child: CustomButton(
