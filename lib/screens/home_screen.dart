@@ -14,32 +14,41 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: Text("Calculator"),
-        backgroundColor: Colors.orange,
-      ),
+      appBar: AppBar(title: Text("Calculator"), backgroundColor: Colors.orange),
       body: Column(
         children: [
-          Container(
-            child: Text("564",style: TextStyle(
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),),
+          Expanded(
+            flex: 2,
+            child: Container(
+              child: Text(
+                "564",
+                style: TextStyle(
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ),
-          Row(
-            children: [
-              CustomButton(
-                onClick: (){},
-                text: '1',
+          Expanded(
+            flex: 8,
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
 
-              )
-            ],
-          )
+              ),
+              itemCount: 16,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    Text("1",style: TextStyle(color: Colors.white),)
+                  ],
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
   }
 }
-
-
