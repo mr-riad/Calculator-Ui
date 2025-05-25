@@ -62,6 +62,14 @@ class _HomeScreenState extends State<HomeScreen> {
         _operation = value;
         _shouldReset = true;
       }
+
+      else if (value == "=") {
+        _num2 = double.tryParse(displayText) ?? 0;
+
+        displayText = _output;
+        _shouldReset = true;
+      }
+
     });
   }
 
