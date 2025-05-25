@@ -87,6 +87,15 @@ class _HomeScreenState extends State<HomeScreen> {
         _shouldReset = true;
       }
 
+      else {
+        // . number / Append numbers
+        if (_shouldReset || displayText == "0") {
+          displayText = value == "." ? "0." : value;
+          _shouldReset = false;
+        }
+      }
+
+
     });
   }
 
