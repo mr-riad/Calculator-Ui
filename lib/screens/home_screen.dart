@@ -93,9 +93,13 @@ class _HomeScreenState extends State<HomeScreen> {
           displayText = value == "." ? "0." : value;
           _shouldReset = false;
         }
+        else {
+          if (value == "." && displayText.contains(".")) {
+            return;
+          }
+          displayText += value;
+        }
       }
-
-
     });
   }
 
