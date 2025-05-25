@@ -49,6 +49,15 @@ class _HomeScreenState extends State<HomeScreen> {
         _operation ='';
         _shouldReset=false;
       }
+      else if(value =="⌫"){
+        if(displayText.length>1){
+          displayText = displayText.substring(0, displayText.length -1);
+        }
+        else{
+          displayText="0";
+        }
+
+      }
     });
   }
 
