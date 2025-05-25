@@ -69,7 +69,9 @@ class _HomeScreenState extends State<HomeScreen> {
           case "+":
             _output = (_num1 + _num2).toString();
             break;
-
+          case "-":
+            _output=(_num1-_num2).toString();
+            break;
         }
 
         displayText = _output;
