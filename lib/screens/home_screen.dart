@@ -65,6 +65,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
       else if (value == "=") {
         _num2 = double.tryParse(displayText) ?? 0;
+        switch (_operation) {
+          case "+":
+            _output = (_num1 + _num2).toString();
+            break;
+
+        }
 
         displayText = _output;
         _shouldReset = true;
