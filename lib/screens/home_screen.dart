@@ -39,6 +39,19 @@ class _HomeScreenState extends State<HomeScreen> {
     "=",
   ];
 
+  void _handleButtonClick(String value){
+    setState(() {
+      if(value =="C"){
+        displayText = "0";
+        _output = "0";
+        _num1 = 0;
+        _num2 = 0;
+        _operation ='';
+        _shouldReset=false;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
