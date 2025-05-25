@@ -165,6 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: CustomButton(
                     onClick: () => _handleButtonClick(calculatorButtons[index]),
                     text: calculatorButtons[index],
+                color: _getButtonColor(calculatorButtons[index])
                   ),
                 );
               },
