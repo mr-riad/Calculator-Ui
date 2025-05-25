@@ -72,6 +72,15 @@ class _HomeScreenState extends State<HomeScreen> {
           case "-":
             _output=(_num1-_num2).toString();
             break;
+          case "×":
+            _output = (_num1 * _num2).toString();
+            break;
+          case "÷":
+            _output = _num2 != 0 ? (_num1 / _num2).toString() : "Error";
+            break;
+          case "%":
+            _output = (_num1 % _num2).toString();
+            break;
         }
 
         displayText = _output;
