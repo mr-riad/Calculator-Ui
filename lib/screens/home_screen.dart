@@ -56,7 +56,11 @@ class _HomeScreenState extends State<HomeScreen> {
         else{
           displayText="0";
         }
-
+      }
+      else if (value == "+" || value == "-" || value == "×" || value == "÷" || value == "%"){
+        _num1 = double.tryParse(displayText) ?? 0;
+        _operation = value;
+        _shouldReset = true;
       }
     });
   }
