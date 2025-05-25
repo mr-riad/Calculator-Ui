@@ -103,6 +103,16 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  Color _getButtonColor(String value) {
+    if (value == "C" || value == "⌫") {
+      return Colors.red;
+    } else if (value == "+" || value == "-" || value == "×" || value == "÷" || value == "=" || value == "%") {
+      return Colors.orange;
+    } else {
+      return Colors.grey[800]!;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
