@@ -153,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return Padding(
                   padding: EdgeInsets.all(6),
                   child: CustomButton(
-                    onClick: () {},
+                    onClick: () => _handleButtonClick(calculatorButtons[index]),
                     text: calculatorButtons[index],
                   ),
                 );
