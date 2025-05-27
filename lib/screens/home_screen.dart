@@ -39,38 +39,37 @@ class _HomeScreenState extends State<HomeScreen> {
     "=",
   ];
 
-  void _handleButtonClick(String value){
+  void _handleButtonClick(String value) {
     setState(() {
-      if(value =="C"){
+      if (value == "C") {
         displayText = "0";
         _output = "0";
         _num1 = 0;
         _num2 = 0;
-        _operation ='';
-        _shouldReset=false;
-      }
-      else if(value =="⌫"){
-        if(displayText.length>1){
-          displayText = displayText.substring(0, displayText.length -1);
+        _operation = '';
+        _shouldReset = false;
+      } else if (value == "⌫") {
+        if (displayText.length > 1) {
+          displayText = displayText.substring(0, displayText.length - 1);
+        } else {
+          displayText = "0";
         }
-        else{
-          displayText="0";
-        }
-      }
-      else if (value == "+" || value == "-" || value == "×" || value == "÷" || value == "%"){
+      } else if (value == "+" ||
+          value == "-" ||
+          value == "×" ||
+          value == "÷" ||
+          value == "%") {
         _num1 = double.tryParse(displayText) ?? 0;
         _operation = value;
         _shouldReset = true;
-      }
-
-      else if (value == "=") {
+      } else if (value == "=") {
         _num2 = double.tryParse(displayText) ?? 0;
         switch (_operation) {
           case "+":
             _output = (_num1 + _num2).toString();
             break;
           case "-":
-            _output=(_num1-_num2).toString();
+            _output = (_num1 - _num2).toString();
             break;
           case "×":
             _output = (_num1 * _num2).toString();
@@ -85,15 +84,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
         displayText = _output;
         _shouldReset = true;
-      }
-
-      else {
-        // . number / Append numbers
+      } else {
         if (_shouldReset || displayText == "0") {
           displayText = value == "." ? "0." : value;
           _shouldReset = false;
-        }
-        else {
+        } else {
           if (value == "." && displayText.contains(".")) {
             return;
           }
@@ -106,7 +101,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Color _getButtonColor(String value) {
     if (value == "C" || value == "⌫") {
       return Colors.red;
-    } else if (value == "+" || value == "-" || value == "×" || value == "÷" || value == "=" || value == "%") {
+    } else if (value == "+" ||
+        value == "-" ||
+        value == "×" ||
+        value == "÷" ||
+        value == "=" ||
+        value == "%") {
       return Colors.orange;
     } else {
       return Colors.grey[800]!;
@@ -119,7 +119,6 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.black,
       appBar: AppBar(title: Text("Calculator"), backgroundColor: Colors.orange),
       body: Column(
-        //mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
             flex: 4,
@@ -165,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: CustomButton(
                     onClick: () => _handleButtonClick(calculatorButtons[index]),
                     text: calculatorButtons[index],
-                color: _getButtonColor(calculatorButtons[index])
+                    color: _getButtonColor(calculatorButtons[index]),
                   ),
                 );
               },
